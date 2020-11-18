@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterMy2
+  m_Shader: {fileID: 4800000, guid: a6a3a92f42d234042bdb1320d9683d2b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorFrom:
+        m_Texture: {fileID: 2800000, guid: 521ba01b98a34334b97fe8fb50582cf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: ee07ea8cb1a00c844b4048d37dcfe712, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: f0d8945c7972e4747aa776e16494fa37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 4ce002b4dccc29342862558ba9ea05d2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _ALightContrast: 1
+    - _ALightThreshold: 0
+    - _Angle: 156
+    - _Blend: 0.85
+    - _BlendOffset: 0.468
+    - _BumpScale: 1
+    - _CenterOffX: 0.6
+    - _CenterOffY: 0.57
+    - _CullMode: 0
+    - _Cutoff: 0.36
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnableExternalAlpha: 0
+    - _Fill: 146
+    - _FillFlip: 0
+    - _Flip: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.41
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Middle: 1
+    - _Mode: 0
+    - _NoiseForce: 500
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _RadiusMultiplier: 0.23
+    - _Slide: 0.928
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZTest: 8
+    - _ZWrite: 1
+    m_Colors:
+    - _BottomColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.8537736, g: 0.91548383, b: 1, a: 1}
+    - _Color2: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorA: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorB: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorBot: {r: 1, g: 1, b: 1, a: 0.46666667}
+    - _ColorFrom: {r: 0.11801354, g: 0.49157616, b: 0.6415094, a: 1}
+    - _ColorMid: {r: 1, g: 1, b: 1, a: 0.4392157}
+    - _ColorTo: {r: 0, g: 0.7137255, b: 1, a: 0}
+    - _ColorTop: {r: 0.9716981, g: 0.3987629, b: 0.3987629, a: 0.3764706}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientPivot: {r: 0.5, g: 0.5, b: 1, a: 1}
+    - _NoiseScale: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TopColor: {r: 1, g: 1, b: 1, a: 1}

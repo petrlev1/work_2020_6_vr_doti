@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2963152409487806763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2963152409487806760}
+  - component: {fileID: 2963152409487806766}
+  - component: {fileID: 2963152409487806761}
+  m_Layer: 0
+  m_Name: TextDot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2963152409487806760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963152409487806763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.183, y: 0.218, z: 0.616}
+  m_LocalScale: {x: 0.014888988, y: 0.01488899, z: 0.014888988}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!23 &2963152409487806766
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963152409487806763}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!102 &2963152409487806761
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963152409487806763}
+  m_Text: "\u0414\u041E\u0422 1 | \u041F\u0443\u043B\u0435\u043C\u0435\u0442 - \n\u0433\u0440\u0443\u043F\u043F\u043E\u0432\u043E\u0435
+    \n\u043B\u0438\u0431\u043E \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0435
+    \n\u0441\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u043E\u0435 \n\u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0435
+    \u043E\u0440\u0443\u0436\u0438\u0435 \n\u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438.
+    \n\u041E\u0442 \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0445 \u0432\u0438\u0434\u043E\u0432
+    \n\u0441\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u043E\u0433\u043E \u043E\u0440\u0443\u0436\u0438\u044F
+    \n\u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0433\u043E
+    \u043A\u0430\u043B\u0438\u0431\u0440\u0430 \n\u043E\u0442\u043B\u0438\u0447\u0430\u0435\u0442\u0441\u044F
+    \u0431\u043E\u043B\u0435\u0435 \u0432\u044B\u0441\u043E\u043A\u043E\u0439 \n\u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u044E
+    \u0438\n\u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u044E
+    \n\u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F \u0431\u043E\u043B\u0435\u0435
+    \u043C\u0430\u0441\u0441\u0438\u0432\u043D\u044B\u043C \n\u0433\u0430\u0431\u0430\u0440\u0438\u0442\u0430\u043C. "
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
