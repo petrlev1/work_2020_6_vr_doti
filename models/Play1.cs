@@ -63,6 +63,7 @@ CharacterController MyPawnBody; //контроллер игрока для вр�
 	void Awake()
     {
 		
+	
 		//TextBord = GameObject.Find("TextBord");
 
 

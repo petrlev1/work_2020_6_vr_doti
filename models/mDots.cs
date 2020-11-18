@@ -23,7 +23,7 @@ public class mDots : MonoBehaviour
 		if ( Dot.GetComponent<Dots>().bool1 == true ) {
 			
 			this.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1, 0, 0, 1);
-			this.gameObject.GetComponent<Animator>().speed = 10;
+			this.gameObject.GetComponent<Animator>().speed = 0.5f;
 			//this.GetComponent<Animation>().Play( "mayak", 15 );
 			//this.gameObject.GetComponent<Animator>().Play(mayak,0,5);
 			

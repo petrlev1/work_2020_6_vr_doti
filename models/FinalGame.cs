@@ -102,11 +102,13 @@ _rb = GetComponent<Rigidbody>();
 		 
 		 //Time2 = Mathf.RoundToInt(Time1 += Time.deltaTime);
 		
-		Debug.Log ( Global.Time2 );
+		//Debug.Log ( Global.Time2 );
 		
-		if ( Global.Time2 == 2 ) {
+		/* if ( Global.Time2 == 2 ) {
 			
 			Debug.Log ( "cool" );
+			
+			} */
 			
 			/* Time1 = 0;
 			
@@ -126,7 +128,7 @@ _rb = GetComponent<Rigidbody>();
 			PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y ); */
 			//Debug.Log ( "per: " + PlayerPrefs.GetFloat("Pos1"));
 			
-		}
+		
 		
 		
 		
