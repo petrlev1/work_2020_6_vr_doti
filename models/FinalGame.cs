@@ -42,7 +42,7 @@ public GameObject aim;
     {
 		
 		//Camera11 = GameObject.Find("CenterEyeAnchor" ) // для VR;
-		Camera11 = this.gameObject; // для Play;
+		//Camera11 = this.gameObject; // для Play;
 		
 		Vzriv1 = GameObject.Find("Vzriv1" );
 Vzriv2 = GameObject.Find("Vzriv2" );
@@ -60,7 +60,7 @@ Vzriv5 = GameObject.Find("Vzriv5" );
 		
 	
 //Записываем переменную 1й позиции	
-	PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );	
+	//PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );	
 
 		
 Dot1 = GameObject.Find("Dot1" );
@@ -175,7 +175,7 @@ _rb = GetComponent<Rigidbody>();
 	
 	if ( hit.collider.gameObject == ButFire.gameObject ){
 		
-		Debug.Log ("fire");
+		//Debug.Log ("fire");
 		Dot1.GetComponent<Dots>().bool1 = false;
 		NoteFire.SetActive(false);
 		

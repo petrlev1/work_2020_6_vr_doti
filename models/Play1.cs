@@ -171,7 +171,7 @@ Dot5 = GameObject.Find("Dot5" );
 	
 	if ( hit.collider.gameObject == Dot1.gameObject ){
 		
-		//Debug.Log("Дот 1");
+		Debug.Log("Дот 1");
 		Text1.GetComponent<Text>().text = "Объект: Дот 1";
 		//GameObject.FindGameObjectWithTag("TextDots").SetActive(false);
 		Global.TextDot1.SetActive(true);
