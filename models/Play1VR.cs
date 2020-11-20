@@ -56,6 +56,7 @@ MinMax_X = new Vector2(-360, 360);  //ограничение по оси X
     private GameObject TextDot3;
 	private GameObject TextDot4;
 	private GameObject TextDot5;
+	
 	private GameObject TextText1;
 	private GameObject BordTextSprite;
 	private GameObject p1;
@@ -74,12 +75,12 @@ MinMax_X = new Vector2(-360, 360);  //ограничение по оси X
 		BordTextSprite = GameObject.Find("BordTextSprite");
 		p1 = GameObject.Find("p1");
 		
+		TextDot1 = GameObject.Find("TextDot1");
+		 TextDot2 = GameObject.Find("TextDot2");
+		TextDot3 = GameObject.Find("TextDot3");
+		TextDot4 = GameObject.Find("TextDot4");
+		TextDot5 = GameObject.Find("TextDot5");
 
-Global.TextDot1.SetActive(false);
-Global.TextDot2.SetActive(false);
-Global.TextDot3.SetActive(false);
-Global.TextDot4.SetActive(false);
-Global.TextDot5.SetActive(false);
 		
 	}
 	
@@ -92,6 +93,12 @@ Global.TextDot5.SetActive(false);
 		
 		//получаем тело нашего игрока
 //MyPawnBody = this.GetComponent<CharacterController>();
+
+TextDot1.SetActive(false);
+TextDot2.SetActive(false);
+TextDot3.SetActive(false);
+TextDot4.SetActive(false);
+TextDot5.SetActive(false);
 
 
 Dot1 = GameObject.Find("Dot1" );

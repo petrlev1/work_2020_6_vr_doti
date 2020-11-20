@@ -16,6 +16,8 @@ public class TextDots : MonoBehaviour
 	public GameObject ImgCanv1;
 	public GameObject ImgCanv2;
 	public GameObject ImgCanv3;
+	public GameObject ImgCanv4;
+	public GameObject TextDotRight;
 	//private GameObject Canvas;
 	private GameObject Text1;
 	
@@ -26,11 +28,20 @@ public class TextDots : MonoBehaviour
 	
 	
 	
+	void OnEnable()
+	{
+		//TextDotRight.SetActive(false);
+		StartCoroutine(TextDotRightWait());
+	}
+	
 	
 	void Awake()
     {
 		
-		
+		//gameObject.SetActive(false);
+		//TextDotRight = GameObject.Find("TextDotRight");
+		//TextDotRight.SetActive(false);
+		//TextDotRight.SetActive(true);
 		
 	}
 	
@@ -49,7 +60,8 @@ public class TextDots : MonoBehaviour
 		Text1 = GameObject.Find("Text1" );
 		
 		
-		//gameObject.SetActive(false);
+		
+		
 		
         
     }
@@ -115,6 +127,23 @@ public class TextDots : MonoBehaviour
 	
 	}
 	
+	
         
     }
+	
+	
+	void OnDisable() 
+	{
+		TextDotRight.SetActive(false);
+		//TextDotRight = GameObject.Find("TextDot1");
+	}
+	
+	
+	
+	IEnumerator TextDotRightWait()
+    {
+		yield return new WaitForSeconds(2.0f);
+		TextDotRight.SetActive(true);
+	}
+		
 }

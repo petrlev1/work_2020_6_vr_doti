@@ -46,11 +46,15 @@ Global.TextDot1 = GameObject.Find("TextDot1");
 		Global.TextDot3 = GameObject.Find("TextDot3");
 		Global.TextDot4 = GameObject.Find("TextDot4");
 		Global.TextDot5 = GameObject.Find("TextDot5");
+		
+		
+		
 	
     }
 	
 	void Start()
 	{
+		
 		
 		
 		
