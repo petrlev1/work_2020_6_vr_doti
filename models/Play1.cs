@@ -18,6 +18,7 @@ public class Play1 : MonoBehaviour
 	private GameObject Dot5;
 	
 	private float ColorAlph;
+	public GameObject TestObj;
 
 
 
@@ -62,6 +63,10 @@ CharacterController MyPawnBody; //контроллер игрока для вр�
 	/*private GameObject TextDot3;
 	private GameObject TextDot4;
 	private GameObject TextDot5; */
+	
+	
+	
+	
 	
 	
 	
@@ -181,7 +186,7 @@ Dot5 = GameObject.Find("Dot5" );
 	
 	if ( hit.collider.gameObject == Dot1.gameObject ){
 		
-		Debug.Log("Дот 1");
+		//Debug.Log("Дот 1");
 		Text1.GetComponent<Text>().text = "Объект: Дот 1";
 		//GameObject.FindGameObjectWithTag("TextDots").SetActive(false);
 		Global.TextDot1.SetActive(true);

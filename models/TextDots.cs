@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class TextDots : MonoBehaviour
 {
 	
-	private GameObject Play1;
+	//private GameObject Play1;
 	//private GameObject Aim;
+	public GameObject Player;
+	public GameObject aim;
 	private GameObject PricelCanv;
 	public GameObject Dot;
 	public GameObject Text;
@@ -17,7 +19,10 @@ public class TextDots : MonoBehaviour
 	public GameObject ImgCanv2;
 	public GameObject ImgCanv3;
 	public GameObject ImgCanv4;
+	public GameObject ImgCanv5;
 	public GameObject TextDotRight;
+	public int ScreenPosY;
+	public GameObject TestObj;
 	//private GameObject Canvas;
 	private GameObject Text1;
 	
@@ -25,6 +30,36 @@ public class TextDots : MonoBehaviour
     private GameObject MCam;
 	private float Distance1;
 	private float Distance2;
+	
+	
+	
+	public void OnDrawGizmos()
+    {
+		
+		//ЛУЧ
+	//сюда запишется инфо о пересечении луча, если оно будет
+    RaycastHit hit;
+    //сам луч, начинается от позиции этого объекта и направлен в сторону цели
+    Ray ray = new Ray(Player.transform.position, aim.transform.position - Player.transform.position);
+    //пускаем луч
+    Physics.Raycast(ray, out hit);
+	
+        var DotCollider = Dot.GetComponent<Collider>();
+		//Vector3 AimScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(aim.transform.position);
+		//Vector3 AimScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(aim.transform.position);
+
+        if (!DotCollider)
+        {
+            return; // nothing to do without a collider
+        }
+
+        Vector3 DotClosestPoint2 = DotCollider.ClosestPoint(hit.point);
+		
+		//Debug.Log( closestPoint );
+
+        //Gizmos.DrawSphere(Player.transform.position, 0.1f);
+        Gizmos.DrawWireSphere(DotClosestPoint2, 0.05f);
+    } 
 	
 	
 	
@@ -51,10 +86,10 @@ public class TextDots : MonoBehaviour
     void Start()
     {
 		
-		Play1 = GameObject.Find("Play1" );
+		//Play1 = GameObject.Find("Play1" );
 		//Dot1 = GameObject.Find("Dot1" );
-		//MCam = GameObject.Find("MCam" ); //Для Play1
-	    MCam = GameObject.Find("CenterEyeAnchor" ); //Для VR
+		MCam = GameObject.Find("MCam" ); //Для Play1
+	    //MCam = GameObject.Find("CenterEyeAnchor" ); //Для VR
 		//Aim = GameObject.Find("aim" );
 		PricelCanv = GameObject.Find("pricel2" );
 		Text1 = GameObject.Find("Text1" );
@@ -73,6 +108,14 @@ public class TextDots : MonoBehaviour
 	
     void Update()
     {
+		
+		//ЛУЧ
+	//сюда запишется инфо о пересечении луча, если оно будет
+    RaycastHit hit;
+    //сам луч, начинается от позиции этого объекта и направлен в сторону цели
+    Ray ray = new Ray(Player.transform.position, aim.transform.position - Player.transform.position);
+    //пускаем луч
+    Physics.Raycast(ray, out hit);
 		
 		//Debug.Log ( "Play1: " + Play1.transform.rotation.y );
 		//Debug.Log ( "Dot1: " + Dot.transform.position );
@@ -97,37 +140,89 @@ public class TextDots : MonoBehaviour
 		//this.transform.localRotation = Quaternion.Euler( 1, Play1.transform.rotation.y * 135 ,1 );
 		
 		
+		
 		//Высчитываем позиция 3d объекта относительно экрана
 		Vector3 DotScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(Dot.transform.position);
-		Vector3 AimScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(PricelCanv.transform.position);
+		Vector3 AimScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(aim.transform.position);
 		
-		//Debug.Log( DotScreenPos );
+		var DotCollider = Dot.GetComponent<Collider>();
+		
+		if (!DotCollider)
+        {
+            return; // nothing to do without a collider
+        } 
+
+//Ближайшая точка к прицелу на коллайдере дота
+        Vector3 DotClosestPoint = DotCollider.ClosestPoint(hit.point);
+		Vector3 DotClosestPointScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(DotClosestPoint);
+		
+		//Debug.Log( "Ближ точка: " + DotClosestPoint );
+		//Debug.Log( "Прицел: " + aim.transform.position.x );
+		//Debug.Log( "Дистанц: " + Vector3.Distance( MCam.GetComponent<Camera>().WorldToScreenPoint(DotClosestPoint), MCam.GetComponent<Camera>().WorldToScreenPoint(aim.transform.position) ) );
 		//Text1.GetComponent<Text>().text = DotScreenPos.ToString();
 		
 		//Позиционирование объекта
 		//this.transform.position  = new Vector3( Screen.width / 5f + DotScreenPos.x / 1.1f, Screen.height / 2, 0.0f ); //Canvas Overlay
-		this.transform.localPosition  = new Vector3( Mathf.RoundToInt(DotScreenPos.x) - 450, Mathf.RoundToInt(DotScreenPos.y) - 500, 0 ); //Canvas Camera
+		this.transform.localPosition  = new Vector3( Mathf.RoundToInt(DotScreenPos.x) - 450, Mathf.RoundToInt(DotScreenPos.y) - ScreenPosY, 0 ); //Canvas Camera
 		
 		//Исчезновение текста по мере отдаления
 		//Distance1 = Vector3.Distance(Aim.transform.position, Dot.transform.position); //Дистанция между 3д объектами
 		Distance2 = Vector3.Distance( DotScreenPos, AimScreenPos ); //Дистанция между объектами на канвасе
-		Text.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f - ( Distance2 / 100f ) );
-		Text2.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f - ( Distance2 / 100f ) );
-		ImgCanv.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.1f / ( Distance2 / 100f ) );
-		ImgCanv1.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.1f / ( Distance2 / 100f ) );
-		ImgCanv2.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.1f / ( Distance2 / 100f ) );
-		ImgCanv3.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.1f / ( Distance2 / 100f ) );
+		//Distance2 = Vector3.Distance( DotScreenPos, DotClosestPointScreenPos );
 		
-		
-		
-		//Дистанция полного исчезновения объекта
-	if ( Distance2 > 150 ) {
+		//if ( hit.collider == null && Distance2 > 150 ){
 	
+	
+	Text.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f - ( Distance2 / 100f ) );
+		Text2.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f - ( Distance2 / 100f ) );
+		ImgCanv.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+		ImgCanv1.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+		ImgCanv2.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+		ImgCanv3.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+		ImgCanv4.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+		ImgCanv5.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 0.3f / ( Distance2 / 100f ) );
+	
+	if ( hit.collider == null ){
+		
+	if ( Vector3.Distance( DotScreenPos, AimScreenPos ) > 250 ) {
+		
 	gameObject.SetActive(false);
 	
 	}
 	
+	}
 	
+	if ( hit.collider != null ){
+		
+	Text.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		Text2.GetComponent<Text>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv1.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv2.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv3.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv4.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		ImgCanv5.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+	
+	}
+	
+		
+		 
+		
+	//}
+	
+	
+	
+	/* 
+	
+	if ( hit.collider != null ){
+		
+		
+		
+		
+	} */
+	
+	
+		
         
     }
 	
@@ -137,6 +232,11 @@ public class TextDots : MonoBehaviour
 		TextDotRight.SetActive(false);
 		//TextDotRight = GameObject.Find("TextDot1");
 	}
+	
+	
+	
+	
+	
 	
 	
 	
