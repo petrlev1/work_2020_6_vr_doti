@@ -29,11 +29,20 @@ public GameObject aim;
 	
 	private Rigidbody _rb;
 	
-	private GameObject Camera11;
+	public GameObject Camera11;
 	public float WaitTime;
+	public int ResetTime = 55;
 	
-	/* float Time1 = 0.0f;
-	int Time2 = 0; */
+	
+	
+	public float timer = 0.0f;
+     public int seconds;
+     public bool keepTiming = true;
+	 
+	 public float timer2 = 0.0f;
+     public int seconds2;
+	
+	
 	
 
 
@@ -59,8 +68,7 @@ Vzriv5 = GameObject.Find("Vzriv5" );
     {
 		
 	
-//Записываем переменную 1й позиции	
-	//PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );	
+	
 
 		
 Dot1 = GameObject.Find("Dot1" );
@@ -79,7 +87,8 @@ Vzriv5.SetActive(false);
 
 _rb = GetComponent<Rigidbody>();
 
-
+PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );
+Debug.Log ( "Переменная равна: " + ((int)(Camera11.transform.rotation.x * 100)) / 100f );
         
     }
 
@@ -95,38 +104,60 @@ _rb = GetComponent<Rigidbody>();
 		
 		//StartCoroutine( Pos1());
 	
-		
-		//int Time1 = Mathf.RoundToInt(Time.time);
-		//float Time1 += Time.deltaTime;
-		
+	
+	
+	
+	
+	//Таймер и сравнивание переменных
+	      
+		  Timer();
+		  Timer2();
+		  Text1.GetComponent<Text>().text = seconds.ToString();
+		   
+		   float VarNow = ((int)(Camera11.transform.rotation.y * 10)) / 10f;
+		   float VarSave = ((int)(PlayerPrefs.GetFloat("Pos1") * 10)) / 10f;
+		   
+		  //Общее время
+		  if (seconds > 1)
+         {
+			 
+			 //Записываем переменную 1й позиции	
+PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );
+Debug.Log ( "Переменная равна: " + VarNow );
+			 //Debug.Log ( Camera11.transform.rotation.x );
+			 //Text1.GetComponent<Text>().text = seconds.ToString();
+             ResetTimer();
+         }
 		 
-		 //Time2 = Mathf.RoundToInt(Time1 += Time.deltaTime);
-		
-		//Debug.Log ( Global.Time2 );
-		
-		/* if ( Global.Time2 == 2 ) {
+		 if ( VarNow == VarSave ) {
+			 Text1.GetComponent<Text>().text = "Переменные равны! " + seconds2.ToString();
+			 ResetTimer();
+			 
+			 if ( seconds2 > ResetTime ) {
+				 
+				 Text1.GetComponent<Text>().text = "Игра обновлена";
+				 StartCoroutine( Wait1());
+			 }
 			
-			Debug.Log ( "cool" );
-			
-			} */
-			
-			/* Time1 = 0;
-			
-			if ( Camera11.transform.rotation.y == PlayerPrefs.GetFloat("Pos1") ) {
-				
-				Text1.GetComponent<Text>().text = "Переменные равны";
-				Debug.Log ( "Переменные равны" );
-				Debug.Log ( "Camera11.transform.rotation.y: " + Camera11.transform.rotation.y );
-				Debug.Log ( "PlayerPrefs.GetFloat(Pos1): " + PlayerPrefs.GetFloat("Pos1") );
-				
-			} else {
-				Text1.GetComponent<Text>().text = "Переменные НЕ равны";
-				Debug.Log ( "Переменные НЕ равны" );
-				Debug.Log ( "Camera11.transform.rotation.y: " + Camera11.transform.rotation.y );
-				Debug.Log ( "PlayerPrefs.GetFloat(Pos1): " + PlayerPrefs.GetFloat("Pos1") );
-			}
-			PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y ); */
-			//Debug.Log ( "per: " + PlayerPrefs.GetFloat("Pos1"));
+		 } else {
+			 
+			 Text1.GetComponent<Text>().text = seconds.ToString();
+			 ResetTimer2();
+			 
+		 }
+		 
+		 //Text1.GetComponent<Text>().text = "COOl";
+		 
+		 /* if ( ((int)(Camera11.transform.rotation.x * 100)) / 100f == ((int)(PlayerPrefs.GetFloat("Pos1") * 100)) / 100f ) {
+			 Debug.Log ( "Переменные равны: " );
+			 if ( seconds > 13 ) {
+				 //Debug.Log ( "Перезагрузка игры!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" );
+			 }
+			 //Debug.Log ( "Camera11.transform.rotation.x:" + ((int)(Camera11.transform.rotation.x * 100)) / 100f );
+			 //Debug.Log ( "PlayerPrefs.GetFloat: " + ((int)(PlayerPrefs.GetFloat("Pos1") * 100)) / 100f );
+		 } else {
+				//Debug.Log ( "Переменные НЕ равны: " );
+		 } */
 			
 		
 		
@@ -218,7 +249,7 @@ Global.TextDot5.SetActive(false);
 
    if ( (Input.anyKeyDown ) ) { // реагирует на любое действие пользователя - мышь, клава, тачскри
 		   
-	   Text1.GetComponent<Text>().text = "COOl";
+	   //Text1.GetComponent<Text>().text = "COOl";
 	   //Debug.Log ( " Cool " );
 	   
     }
@@ -228,6 +259,9 @@ Global.TextDot5.SetActive(false);
 
 	
 	}
+	
+	
+	
 
 	
 	
@@ -266,11 +300,21 @@ Global.mDot4.gameObject.GetComponent<Animator>().speed = 1;
 Global.mDot5.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1, 1, 1, 1);
 Global.mDot5.gameObject.GetComponent<Animator>().speed = 1;
 
+Global.TextDot1.SetActive(false);
+Global.TextDot2.SetActive(false);
+Global.TextDot3.SetActive(false);
+Global.TextDot4.SetActive(false);
+Global.TextDot5.SetActive(false);
+
 Vzriv1.SetActive(false);
 		Vzriv2.SetActive(false);
 		Vzriv3.SetActive(false);
 		Vzriv4.SetActive(false);
 		Vzriv5.SetActive(false);
+		
+		NoteFire.SetActive(false);
+		
+		ResetTimer2();
 
     }
 	
@@ -290,6 +334,69 @@ yield return new WaitForSeconds(0.4f);
 		Vzriv5.SetActive(true);
 
     }
+	
+	
+	
+	
+	
+	public void Timer()
+     {
+         // seconds
+         timer += Time.deltaTime;
+         // turn float seonds to int
+         seconds = (int)(timer % 60);
+         //print(seconds);
+     }
+ 
+     public void ResetTimer()
+     {
+         // seconds
+         timer += Time.deltaTime;
+         // turn float seonds to int
+         seconds = (int)(timer % 60);
+         //print(seconds);
+ timer = 0.0f;
+     }
+ 
+     public void StopTimer()
+     {
+         if (keepTiming)
+         {
+             // seconds
+             timer += Time.deltaTime;
+             // turn float seonds to int
+             seconds = (int)(timer % 60);
+             print(seconds);
+         }
+ 
+         if (seconds > 4)
+         {
+             // stop and record time
+             keepTiming = false;
+             print(seconds);
+         }
+		 
+	 }
+	 
+	 public void Timer2()
+     {
+         // seconds
+         timer2 += Time.deltaTime;
+         // turn float seonds to int
+         seconds2 = (int)(timer2 % 60);
+         //print(seconds);
+     }
+ 
+     public void ResetTimer2()
+     {
+         // seconds
+         timer2 += Time.deltaTime;
+         // turn float seonds to int
+         seconds2 = (int)(timer2 % 60);
+         //print(seconds);
+ timer2 = 0.0f;
+     }
+	 
 	
 	
 }

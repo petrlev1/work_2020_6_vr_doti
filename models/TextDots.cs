@@ -33,7 +33,7 @@ public class TextDots : MonoBehaviour
 	
 	
 	
-	public void OnDrawGizmos()
+	/* public void OnDrawGizmos()
     {
 		
 		//ЛУЧ
@@ -59,7 +59,7 @@ public class TextDots : MonoBehaviour
 
         //Gizmos.DrawSphere(Player.transform.position, 0.1f);
         Gizmos.DrawWireSphere(DotClosestPoint2, 0.05f);
-    } 
+    } */ 
 	
 	
 	
@@ -88,8 +88,8 @@ public class TextDots : MonoBehaviour
 		
 		//Play1 = GameObject.Find("Play1" );
 		//Dot1 = GameObject.Find("Dot1" );
-		MCam = GameObject.Find("MCam" ); //Для Play1
-	    //MCam = GameObject.Find("CenterEyeAnchor" ); //Для VR
+		//MCam = GameObject.Find("MCam" ); //Для Play1
+	    MCam = GameObject.Find("CenterEyeAnchor" ); //Для VR
 		//Aim = GameObject.Find("aim" );
 		PricelCanv = GameObject.Find("pricel2" );
 		Text1 = GameObject.Find("Text1" );

@@ -187,7 +187,7 @@ Dot5 = GameObject.Find("Dot5" );
 	if ( hit.collider.gameObject == Dot1.gameObject ){
 		
 		//Debug.Log("Дот 1");
-		Text1.GetComponent<Text>().text = "Объект: Дот 1";
+		//Text1.GetComponent<Text>().text = "Объект: Дот 1";
 		//GameObject.FindGameObjectWithTag("TextDots").SetActive(false);
 		Global.TextDot1.SetActive(true);
 		Global.TextDot2.SetActive(false);
@@ -199,7 +199,7 @@ Dot5 = GameObject.Find("Dot5" );
 		
 		
 	} else if ( hit.collider.gameObject == Dot2.gameObject ) { 
-	Text1.GetComponent<Text>().text = "Объект: Дот 2";
+	//Text1.GetComponent<Text>().text = "Объект: Дот 2";
 	//GameObject.FindGameObjectWithTag("TextDots").SetActive(false);
 	Global.TextDot1.SetActive(false);
 		Global.TextDot2.SetActive(true);
@@ -210,7 +210,7 @@ Dot5 = GameObject.Find("Dot5" );
 	}
 	else if ( hit.collider.gameObject == Dot3.gameObject ) { 
 	//Debug.Log("Дот 3");
-	Text1.GetComponent<Text>().text = "Объект: Дот 3"; 
+	//Text1.GetComponent<Text>().text = "Объект: Дот 3"; 
 	Global.TextDot3.SetActive(true);
 	Global.TextDot1.SetActive(false);
 		Global.TextDot2.SetActive(false);
@@ -219,7 +219,7 @@ Dot5 = GameObject.Find("Dot5" );
 		Dot3.GetComponent<Dots>().bool1 = true;
 	}
 	else if ( hit.collider.gameObject == Dot4.gameObject ) { 
-	Text1.GetComponent<Text>().text = "Объект: Дот 4";
+	//Text1.GetComponent<Text>().text = "Объект: Дот 4";
 	Global.TextDot4.SetActive(true);
  Global.TextDot1.SetActive(false);
 		Global.TextDot2.SetActive(false);
@@ -228,7 +228,7 @@ Dot5 = GameObject.Find("Dot5" );
 		Dot4.GetComponent<Dots>().bool1 = true;
 	}
 	else if ( hit.collider.gameObject == Dot5.gameObject ) { 
-	Text1.GetComponent<Text>().text = "Объект: Дот 5";
+	//Text1.GetComponent<Text>().text = "Объект: Дот 5";
 	Global.TextDot5.SetActive(true);
 Global.TextDot1.SetActive(false);
 		Global.TextDot2.SetActive(false);
