@@ -271,10 +271,10 @@ Global.TextDot1.SetActive(false);
 	
 	
 	//Выход
-	if (Input.GetKey("escape"))
+	/* if (Input.GetKey("escape"))
         {
             Application.Quit();
-        }
+        } */
 		
 		
 		
