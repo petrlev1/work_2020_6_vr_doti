@@ -8,6 +8,8 @@ public class TextDots : MonoBehaviour
 	
 	//private GameObject Play1;
 	//private GameObject Aim;
+	public GameObject TestText1;
+	public GameObject TestText2;
 	public GameObject Player;
 	public GameObject aim;
 	private GameObject PricelCanv;
@@ -145,6 +147,7 @@ public class TextDots : MonoBehaviour
 		Vector3 DotScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(Dot.transform.position);
 		Vector3 AimScreenPos = MCam.GetComponent<Camera>().WorldToScreenPoint(aim.transform.position);
 		
+		
 		var DotCollider = Dot.GetComponent<Collider>();
 		
 		if (!DotCollider)
@@ -163,7 +166,24 @@ public class TextDots : MonoBehaviour
 		
 		//Позиционирование объекта
 		//this.transform.position  = new Vector3( Screen.width / 5f + DotScreenPos.x / 1.1f, Screen.height / 2, 0.0f ); //Canvas Overlay
+		/* if ( Mathf.RoundToInt(DotScreenPos.x) > 750 && Mathf.RoundToInt(DotScreenPos.x) < 845 ) {
+			
+			this.transform.localPosition  = new Vector3( Mathf.RoundToInt(785) - 450, Mathf.RoundToInt(869) - ScreenPosY, 0 );
+			
+		} else {
+			
+			this.transform.localPosition  = new Vector3( Mathf.RoundToInt(DotScreenPos.x) - 450, Mathf.RoundToInt(869) - ScreenPosY, 0 ); //Canvas Camera	
+		
+		} */
+		
 		this.transform.localPosition  = new Vector3( Mathf.RoundToInt(DotScreenPos.x) - 450, Mathf.RoundToInt(DotScreenPos.y) - ScreenPosY, 0 ); //Canvas Camera
+		
+		
+		//TestText1.GetComponent<Text>().text = Mathf.RoundToInt(DotScreenPos.x).ToString();
+//TestText2.GetComponent<Text>().text = Mathf.RoundToInt(DotScreenPos.y).ToString();
+
+		Debug.Log( "DotScreenPos.x: " + Mathf.RoundToInt(DotScreenPos.x) );
+		Debug.Log( "DotScreenPos.y: " + Mathf.RoundToInt(DotScreenPos.y) );
 		
 		//Исчезновение текста по мере отдаления
 		//Distance1 = Vector3.Distance(Aim.transform.position, Dot.transform.position); //Дистанция между 3д объектами
@@ -202,6 +222,8 @@ public class TextDots : MonoBehaviour
 		ImgCanv3.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
 		ImgCanv4.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
 		ImgCanv5.GetComponent<Image>().color = new UnityEngine.Color(1f, 1f, 1f, 1f );
+		
+		//this.transform.localPosition  = new Vector3( 355, 370, 0 );
 	
 	}
 	

@@ -88,7 +88,7 @@ Vzriv5.SetActive(false);
 _rb = GetComponent<Rigidbody>();
 
 PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );
-Debug.Log ( "Переменная равна: " + ((int)(Camera11.transform.rotation.x * 100)) / 100f );
+//Debug.Log ( "Переменная равна: " + ((int)(Camera11.transform.rotation.x * 100)) / 100f );
         
     }
 
@@ -112,7 +112,7 @@ Debug.Log ( "Переменная равна: " + ((int)(Camera11.transform.rota
 	      
 		  Timer();
 		  Timer2();
-		  Text1.GetComponent<Text>().text = seconds.ToString();
+		  //Text1.GetComponent<Text>().text = seconds.ToString();
 		   
 		   float VarNow = ((int)(Camera11.transform.rotation.y * 10)) / 10f;
 		   float VarSave = ((int)(PlayerPrefs.GetFloat("Pos1") * 10)) / 10f;
@@ -123,25 +123,25 @@ Debug.Log ( "Переменная равна: " + ((int)(Camera11.transform.rota
 			 
 			 //Записываем переменную 1й позиции	
 PlayerPrefs.SetFloat( "Pos1", Camera11.transform.rotation.y );
-Debug.Log ( "Переменная равна: " + VarNow );
+//Debug.Log ( "Переменная равна: " + VarNow );
 			 //Debug.Log ( Camera11.transform.rotation.x );
 			 //Text1.GetComponent<Text>().text = seconds.ToString();
              ResetTimer();
          }
 		 
 		 if ( VarNow == VarSave ) {
-			 Text1.GetComponent<Text>().text = "Переменные равны! " + seconds2.ToString();
+			 //Text1.GetComponent<Text>().text = "Переменные равны! " + seconds2.ToString();
 			 ResetTimer();
 			 
 			 if ( seconds2 > ResetTime ) {
 				 
-				 Text1.GetComponent<Text>().text = "Игра обновлена";
+				 //Text1.GetComponent<Text>().text = "Игра обновлена";
 				 StartCoroutine( Wait1());
 			 }
 			
 		 } else {
 			 
-			 Text1.GetComponent<Text>().text = seconds.ToString();
+			 //Text1.GetComponent<Text>().text = seconds.ToString();
 			 ResetTimer2();
 			 
 		 }
